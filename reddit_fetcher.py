@@ -40,7 +40,7 @@ def fetch_reddit_posts():
                     continue
                 all_posts.append({
                     "title"     : post.title,
-                    "url"       : f"https://reddit.com{post.permalink}",
+                    "url" : post.permalink if post.permalink.startswith("http") else f"https://reddit.com{post.permalink}",
                     "upvotes"   : post.score,
                     "comments"  : post.comment_count,
                     "subreddit" : sub
